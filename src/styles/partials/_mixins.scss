@@ -1,0 +1,112 @@
+@use 'variables' as *;
+
+@mixin mobile {
+    // min-width: 320px
+    @media screen and (min-width: $mobile-min-breakpoint) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    // min-width: 768px
+    @media screen and (min-width: $tablet-min-breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    // min-width: 1024px
+    @media screen and (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}
+
+//Font Mixins for Page Header
+@mixin pageHeader {
+    font-family: "AvenirDemi", sans-serif;
+    font-size: 1.5rem;
+    line-height: 2rem;
+
+    @include tablet {
+        font-size: 2.063rem;
+        line-height: 2.75rem;   
+    }
+
+    @include desktop {
+        font-size: 2.063rem;
+        line-height: 2.75rem;
+    }
+}
+
+//Font Mixins for Section Header
+@mixin sectionHeader {
+    font-family: "AvenirDemi", sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+
+    @include tablet {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+
+    @include desktop {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
+
+//Font Mixins for Sub Header
+@mixin subHeader {
+    font-family: "AvenirDemi", sans-serif;
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+
+    @include tablet {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+
+    @include desktop {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+//Font Mixins for Body Copy
+@mixin body-copy {
+    font-family: "AvenirRegular", sans-serif;
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+
+    @include tablet {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+
+    @include desktop {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+    }
+}
+
+//Font Mixins for Label
+@mixin label-copy {
+    font-family: "AvenirBold", sans-serif;
+    font-size: 0.625rem;
+    line-height: 1.25rem;
+
+    @include tablet {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+
+    @include desktop {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+    }
+}
+
+//Font Mixins for Button
+@mixin button-copy {
+    @include label-copy;
+}

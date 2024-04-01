@@ -1,0 +1,19 @@
+@use './styles/partials/global.scss' as *;
+@use './styles/partials/typography.scss' as *;
+@use './styles/partials/variables.scss' as *;
+@use './styles/partials/mixins.scss' as *;
+
+.container{
+  display: flex;
+  flex-direction: column;
+  
+
+  @include tablet{
+    margin: 0rem 2.3rem;
+  }
+
+  @include desktop{
+    flex-direction: row;
+    margin: 0rem 7rem;
+  }
+}
