@@ -1,0 +1,29 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography.scss' as *;
+@use '../../styles/partials/mixins' as *;
+
+.hero-banner {
+
+    &__image {
+        background: black;
+        display: flex;
+        justify-content: center;
+        background-size: cover;
+        padding-top: 80px;
+    }
+
+    &__video {
+        width: 100%;
+        margin-top: 5rem;
+
+        @include tablet {
+            margin: 0;
+            width: 90%;
+        }
+
+        @include desktop {
+            margin: 0;
+            width: 70%;
+        }
+    }
+}

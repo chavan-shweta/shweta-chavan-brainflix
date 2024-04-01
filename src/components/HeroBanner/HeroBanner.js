@@ -1,8 +1,14 @@
 import './HeroBanner.scss'
 
-const HeroBanner = () => {
+const HeroBanner = (video) => {
+    //console.log(video);
     return (
-        <h1>HeroBanner Component</h1>
+        <section className="hero-banner__image">
+            <video className='hero-banner__video' poster={video.video.image} controls>
+                <source src={video.video.video + '?api_key=shweta'} type="video/webm" />    
+                <source src={video.video.video + '?api_key=shweta'} type="video/mp4"/>  
+            </video>
+        </section>
     );
 };
 
