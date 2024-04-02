@@ -1,0 +1,302 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.main-content {
+    &__wrapper {
+
+        @include desktop {
+            width: 70%;
+            padding-top: 2rem;
+            border-right: 1px solid $secondary-brainFlix-mercury;
+        }
+    }
+
+    &__title {
+        font-family: "AvenirBold", sans-serif;
+        font-size: 34px;
+        line-height: 44px;
+        margin: 0px 0px 12px 0px;
+    }
+
+    &__detail {
+        display: flex;
+        justify-content: flex-start;
+        padding: 1rem 0rem;
+        border-bottom: 1px solid #e1e1e1;
+        gap: 2.5rem;
+        border-top: 1px solid #e1e1e1;
+
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            padding: 0rem 0rem 0.625rem 0rem;
+            border-bottom: 1px solid #e1e1e1;
+            border-top: none;
+        }
+
+        @include desktop {
+            padding-right: 1rem;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 50%;
+        
+        @include tablet {
+            flex-direction: row;
+            justify-content: flex-start;
+            gap: 3rem;
+            width: 50%;
+        }
+
+        label {
+            color: $primary-brainFlix-silver;
+        }
+    }
+
+    &__channel {
+        font-family: "AvenirDemi", sans-serif;
+    }
+
+    &__social {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 1rem;
+        align-items: center;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: flex-end;
+        }
+    }
+
+    &__views {
+        display: flex;
+
+        img {
+            padding-right: 6px;
+        }
+        label {
+            color: $primary-brainFlix-silver;
+        }
+    }
+
+    &__likes {
+        display: flex;
+
+        img {
+            padding-right: 6px;
+        }
+        label {
+            color: $primary-brainFlix-silver;
+        }
+    }
+
+    &__description {
+        @include tablet {
+            padding: 1rem 1rem 0rem 0rem;
+        }
+    }
+}
+
+
+.conversation-section {
+
+    padding: 1rem 0rem 0rem 0rem;
+
+    @include desktop {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    &__comment-count {
+        font-family: "AvenirDemi", sans-serif;
+    }
+
+    &__image {
+        background: url(../../assets/images/Mohan-muruge.jpg);
+        border-radius: 50%;
+        width: 2.25rem;
+        height: 2.25rem;
+        background-size: cover;
+        background-position: center;
+
+        @include tablet {
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+
+    &__container {
+        display: flex;
+        gap: 1rem;
+        padding: 1rem 0rem 2rem 0rem;
+        border-bottom: 0.094rem solid #E1E1E1;
+
+        @include tablet {
+            padding: 1rem 1rem 2rem 0rem;
+        }
+    }
+
+    &__avtar {
+        padding-top: 1.5rem;
+    }
+
+    &__wrapper {
+        width: 100%;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%
+    }
+
+    &__comment {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        font-family: "AvenirDemi", sans-serif;
+        color: $primary-brainFlix-silver;
+        font-size: 16px;
+            
+        @include tablet {
+            font-size: 16px;
+        }
+        @include desktop {
+            font-size: 14px;
+        }
+    }
+
+    &__button {
+        padding-top: 1rem;
+
+        @include tablet {
+            padding-top: 2rem;
+        }
+    }
+
+    &__comment-img {
+        float: left;
+        width: 18px;
+        height: 18px;
+    }
+
+    &__comment-label {
+        vertical-align: middle;
+        padding-right: 18px;
+    }
+
+    &__error {
+        border: 0.063rem solid #D22D2D !important;
+    }
+
+    &__textarea {
+        font-family: "AvenirRegular", sans-serif;
+        font-size: 16px;
+        border: 0.063rem solid $secondary-brainFlix-mercury;
+        border-radius: 0.25rem;
+        resize: none;
+        height: 60px;
+        padding: 0.5rem 1rem;
+        background-color: #e1e1e13b;
+
+        @include tablet {
+            height: 22px;
+        }
+        @include desktop {
+            font-size: 14px;
+        }
+
+        &::placeholder {
+            color: $primary-brainFlix-black;
+        }
+
+        &:focus-visible {
+            outline: $primary-brainFlix-blue solid 0.063rem;
+        }
+    }
+}
+
+.conversation-list {
+
+    padding: 0;
+    margin: 0 auto;
+
+    &__photo {
+        background-color: $secondary-brainFlix-mercury;
+        border-radius: 50%;
+        width: 2.25rem;
+        height: 2.25rem;
+        background-size: cover;
+        background-position: center;
+
+        @include tablet {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        @include desktop {
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+
+    &__item {
+        padding: 1rem 0rem;
+        border-bottom: 0.094rem solid $secondary-brainFlix-mercury;
+        display: flex;
+        gap: 1rem;
+
+        @include tablet {
+            padding: 1.5rem 0rem;
+        }
+        @include desktop {
+            padding: 1.5rem 1rem 1.5rem 0rem;
+        }
+    }
+
+    &__date {
+        float: right;
+    }
+
+    &__details {
+        width: 92%;
+    }
+
+    &__name {
+        font-family: "AvenirDemi", sans-serif;
+        line-height: 2rem;
+    }
+
+
+    &__namedate {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    &__comment {
+        margin: 0.5rem 0rem 0rem 0rem;
+
+        @include tablet {
+            margin: 0rem;
+            padding-top: 0.5rem;
+        }
+    }
+}

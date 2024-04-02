@@ -1,0 +1,67 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography.scss' as *;
+@use '../../styles/partials/mixins' as *;
+
+.video-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include desktop {
+        width: 33%;
+        padding-top: 1rem;
+        padding-left: 1rem;
+    }
+
+    &__title {
+        color: $primary-brainFlix-silver;
+        padding: 0.5rem 0rem;
+        font-family: "AvenirDemi", sans-serif;
+    }
+
+    &__image {
+        width: 9rem;
+        height: 5rem;
+        border-radius: 4px;
+        background-color: $secondary-brainFlix-mercury;
+
+        @include tablet {
+            width: 9rem;
+            height: 5rem;
+        }
+
+        @include desktop {
+            width: 6.875rem;
+            height: 4.063rem;
+        }
+    }
+
+    &__details {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 24px;
+    }
+
+    &__video-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        p {
+            margin: 0rem;
+
+            // @include tablet {
+            //     font-size: 1rem;
+            // }
+
+            // @include desktop {
+            //     font-size: 14px;
+            // }
+        }
+    }
+
+    &__video-title {
+        font-family: "AvenirDemi", sans-serif;
+    }
+
+}

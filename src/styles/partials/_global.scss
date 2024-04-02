@@ -3,8 +3,15 @@
 
 body {
     font-family: 'AvenirRegular', sans-serif;
-    font-size: 14px;
     margin: 0rem;
+    font-size: 18px;
+            
+    @include tablet {
+        font-size: 16px;
+    }
+    @include desktop {
+        font-size: 14px;
+    }
 }
 
 .btn {
@@ -14,6 +21,10 @@ body {
     height: 38px;
     border-radius: 4px;
     border-style: none;
+
+    &:hover {
+        background-color: $secondary-brainFlix-darkblue;
+    }
 
     @include tablet{
         width: 150px;
