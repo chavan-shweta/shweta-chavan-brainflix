@@ -1,0 +1,175 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography.scss' as *;
+@use '../../styles/partials/mixins' as *;
+
+.video-upload {
+    margin-top: 10.625rem;
+    padding: 1rem 1rem;
+    //border-top: 0.094rem solid $secondary-brainFlix-mercury;
+
+    @include tablet {
+        margin-top: 5rem;
+        padding: 0rem 3.25rem;
+    }
+
+    @include desktop {
+        padding: 0rem 7rem;
+        max-width: 1280px;
+        margin: 5rem auto;
+    }
+
+    &__heading {
+        font-family: "AvenirBold", sans-serif;
+        font-size: 2rem;
+        padding: 1rem 0rem;
+        margin: 0rem;
+
+        @include tablet {
+            border-bottom: 0.094rem solid $secondary-brainFlix-mercury;
+            padding: 2rem 0rem;
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        
+        @include tablet {
+            align-items: flex-start;
+            border-bottom: 0.094rem solid $secondary-brainFlix-mercury;
+            padding: 1rem 0rem;
+        }
+
+        @include desktop {
+            align-items: flex-start;
+            flex-direction: row;
+            padding: 1rem 0rem 2rem 0rem;
+        }
+    }
+
+    &__video-image {
+        height: 50%;
+
+        @include tablet {
+            height: 85%;
+        }
+    }
+
+    &__preview {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding-top: 0.75rem;
+        width: 100%;
+
+        @include tablet {
+            width: 45%;
+        }
+
+        @include desktop {
+            width: 20.313rem;
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        padding-top: 1.5rem;
+
+        @include desktop {
+            padding-left: 1.563rem;
+            padding-top: 0.75rem;
+        }
+    }
+
+    &__input-fields-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    &__label{
+        font-family: "AvenirDemi", sans-serif;
+        color: #AFAFAF;
+        font-size: 1rem;
+
+        @include desktop {
+            font-size: 0.875rem;
+        }
+
+        @include desktop {
+            font-size: 0.75rem;
+        }
+    }
+
+    textarea, input {
+        font-family: "AvenirRegular", sans-serif;
+        font-size: 1rem;
+        border: 0.063rem solid $secondary-brainFlix-mercury;
+        border-radius: 0.25rem;
+        resize: none;
+        padding: 0.5rem 1rem;
+        background-color: #e1e1e13b;
+
+        &::placeholder {
+            color: $primary-brainFlix-black;
+        }
+
+        &:focus-visible {
+            outline: $primary-brainFlix-blue solid 0.063rem;
+        }
+
+        @include desktop {
+            font-size: 0.875rem;
+        }
+    }
+
+    textarea {
+        height: 5.625rem; 
+        @include tablet {
+            height: 4.375rem; 
+        }
+    }
+
+    &__error {
+        border: 0.063rem solid #D22D2D !important;
+    }
+
+    &__publish{
+        padding: 1.5rem 0rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        
+        @include tablet {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &__publish-img {
+        vertical-align: middle;
+        float: left;
+    }
+
+    &__btn-label {
+        color: #FFFFFF;
+        vertical-align: -webkit-baseline-middle;
+        padding-right: 1.563rem;
+    }
+
+    &__cancel{
+        background-color: $primary-brainFlix-white;
+        color: $primary-brainFlix-blue;
+        font-family: "AvenirDemi", sans-serif;
+        vertical-align: bottom;
+
+        &:hover {
+            background-color: $primary-brainFlix-white;
+            color: $secondary-brainFlix-darkblue;
+            cursor: pointer;
+        }
+    }
+}
