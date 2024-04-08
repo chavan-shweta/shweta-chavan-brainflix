@@ -37,9 +37,14 @@
     }
 
     &__details {
-        display: flex;
-        gap: 1rem;
         margin-bottom: 24px;
+
+        a {
+            text-decoration: none;
+            color: black;
+            display: flex;
+            gap: 1rem;
+        }
     }
 
     &__video-info {
@@ -49,14 +54,6 @@
 
         p {
             margin: 0rem;
-
-            // @include tablet {
-            //     font-size: 1rem;
-            // }
-
-            // @include desktop {
-            //     font-size: 14px;
-            // }
         }
     }
 

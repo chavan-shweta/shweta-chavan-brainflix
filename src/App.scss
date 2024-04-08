@@ -2,18 +2,3 @@
 @use './styles/partials/typography.scss' as *;
 @use './styles/partials/variables.scss' as *;
 @use './styles/partials/mixins.scss' as *;
-
-.container{
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1.5rem 0rem 1.5rem;
-
-  @include tablet{
-    padding: 2rem 3.25rem;
-  }
-
-  @include desktop{
-    flex-direction: row;
-    padding: 0rem 7rem;
-  }
-}
