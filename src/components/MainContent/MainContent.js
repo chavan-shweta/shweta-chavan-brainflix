@@ -6,26 +6,30 @@ import likes from '../../assets/icons/likes.svg';
 import { API_URL, API_KEY } from '../../utils/Api';
 import axios from 'axios';
 
-const MainContent = ({videoId}) => {
+const MainContent = ({ videoId }) => {
 
     const [video, setVideo] = useState();
+    const [comments, setComments] = useState();
+
+    const fetchVideoDetails = async () => {
+        try {
+            const response = await axios.get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`);
+            setVideo(response.data);
+            const commentList = response.data.comments;
+            commentList.sort((a, b) => b.timestamp - a.timestamp);
+            setComments(commentList);
+        } catch (error) {
+            console.log('Failed to fetch video details', error);
+        }
+    }
 
     useEffect(() => {
-        const fetchVideoDetails = async () => {
-            try {
-                const response = await axios.get(`${API_URL}/videos/${videoId}?api_key=${API_KEY}`);
-                setVideo(response.data);
-            } catch (error) {
-                console.log('Failed to fetch video details', error);
-            }
-        }
-
         fetchVideoDetails();
     }, [videoId]);
 
     if (!video) {
         return (
-          <p>Loading video details...</p>
+            <p>Loading video details...</p>
         )
     }
 
@@ -36,9 +40,38 @@ const MainContent = ({videoId}) => {
         if (commentVal.trim() === "") {
             let commentField = document.querySelector('.conversation-section__textarea');
             commentField.classList.add('conversation-section__error');
+        } else {
+            // As per mockup there is no name field, so name value is hard coded
+            postComment({ name: "John Doe", comment: commentVal });
+            // Clear all form inputs
+            event.target.reset();
         }
-        // Clear all form inputs
-        event.target.reset();
+    }
+
+    const postComment = async (comment) => {
+        try {
+            const response = await axios.post(`${API_URL}/videos/${videoId}/comments?api_key=${API_KEY}`, comment);
+            if (response.status === 200) {
+                fetchVideoDetails();
+            }
+        } catch (error) {
+            console.log('Failed to post comment', error);
+        }
+    }
+
+    const deleteComment = async (commentId) => {
+        try {
+            const response = await axios.delete(`${API_URL}/videos/${videoId}/comments/${commentId}?api_key=${API_KEY}`);
+            if (response.status === 200) {
+                fetchVideoDetails();
+            }
+        } catch (error) {
+            console.log('Failed to delete comment', error);
+        }
+    }
+
+    const handleDeleteClick = (commentId) => {
+        deleteComment(commentId);
     }
 
     const formatDate = (commentDate) => {
@@ -74,7 +107,7 @@ const MainContent = ({videoId}) => {
         }
     }
 
-    return ( 
+    return (
         <div className="main-content__wrapper">
             <h1 className="main-content__title">{video.title}</h1>
             <div className="main-content__detail">
@@ -119,7 +152,7 @@ const MainContent = ({videoId}) => {
             </form>
             <div className="conversation-wrapper">
                 <ul className="conversation-list">
-                    {video.comments.map((comment) => (
+                    {comments.map((comment) => (
                         <li key={comment.id} className="conversation-list__item">
                             <div className="conversation-list__img">
                                 <div className="conversation-list__photo"></div>
@@ -130,6 +163,9 @@ const MainContent = ({videoId}) => {
                                     <span className="conversation-list__date">{formatDate(comment.timestamp)}</span>
                                 </div>
                                 <p className="conversation-list__comment">{comment.comment}</p>
+                                <div className="conversation-list__options">
+                                    <span className="material-symbols-sharp" onClick={() => handleDeleteClick(comment.id)}>delete</span>
+                                </div>
                             </div>
                         </li>
                     ))}
