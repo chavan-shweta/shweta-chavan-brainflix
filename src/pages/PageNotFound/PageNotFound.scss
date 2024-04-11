@@ -1,0 +1,20 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/typography.scss' as *;
+
+.error-container {
+    margin-top: 5rem;
+    text-align: center;
+
+    &__btn-home {
+        background-color: $primary-brainFlix-white;
+        color: $primary-brainFlix-blue;
+        font-family: "AvenirDemi", sans-serif;
+        vertical-align: bottom;
+    
+        &:hover {
+            background-color: $primary-brainFlix-white;
+            color: $secondary-brainFlix-darkblue;
+            cursor: pointer;
+        }
+    }
+}
