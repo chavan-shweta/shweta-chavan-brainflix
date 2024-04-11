@@ -1,22 +1,21 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
-import VideoUpload from './components/VideoUpload/VideoUpload';
-import VideoPage from './pages/VideoPage';
+import VideoDetailsPage from './pages/VideoDetails/VideoDetailsPage';
+import VideoUplaodPage from './pages/VideoUpload/VideoUplaodPage';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 
 function App() {
 
   return (
-    <>
-      <BrowserRouter>
-          <Header />
-        <Routes>
-          <Route path="/" element={<VideoPage />} />
-          <Route path="/videos/:videoId" element={<VideoPage />} />
-          <Route path="/upload" element={<VideoUpload />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<VideoDetailsPage />} />
+        <Route path="/videos/:videoId" element={<VideoDetailsPage />} />
+        <Route path="/upload" element={<VideoUplaodPage />} />
+        <Route path="/*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
