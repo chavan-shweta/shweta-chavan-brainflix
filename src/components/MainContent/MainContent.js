@@ -9,7 +9,7 @@ import axios from 'axios';
 const MainContent = ({ videoId }) => {
 
     const [video, setVideo] = useState();
-    const [comments, setComments] = useState();
+    const [comments, setComments] = useState([]);
 
     const fetchVideoDetails = async () => {
         try {
@@ -51,7 +51,7 @@ const MainContent = ({ videoId }) => {
     const postComment = async (comment) => {
         try {
             const response = await axios.post(`${API_URL}/videos/${videoId}/comments?api_key=${API_KEY}`, comment);
-            if (response.status === 200) {
+            if (response.status === 201) {
                 fetchVideoDetails();
             }
         } catch (error) {

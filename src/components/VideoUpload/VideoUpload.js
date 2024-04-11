@@ -1,11 +1,15 @@
 import './VideoUpload.scss'
 import upload from '../../assets/images/Upload-video-preview.jpg'
 import publish from '../../assets/icons/publish.svg'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const VideoUpload = () => {
 
     const navigate = useNavigate();
+
+    const handleCancelClick = () => {
+        navigate("/");
+    }
 
     const handlePublishClick = (event) => {
         event.preventDefault();
@@ -57,9 +61,7 @@ const VideoUpload = () => {
                     <img className="video-upload__publish-img" src={publish} alt="Publish new" />
                     <label className="video-upload__btn-label">PUBLISH</label>
                 </button>
-                <Link to={`/`}>
-                    <button className="btn video-upload__cancel">CANCEL</button>
-                </Link>
+                <button className="btn video-upload__cancel" onClick={handleCancelClick}>CANCEL</button>
             </div>
         </form>
     );
