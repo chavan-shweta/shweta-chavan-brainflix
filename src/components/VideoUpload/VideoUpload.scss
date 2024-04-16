@@ -33,7 +33,7 @@
     &__wrapper {
         display: flex;
         flex-direction: column;
-        
+
         @include tablet {
             align-items: flex-start;
             border-bottom: 0.094rem solid $secondary-brainFlix-mercury;
@@ -48,10 +48,18 @@
     }
 
     &__video-image {
-        height: 50%;
+        height: 14rem;
+        border-radius: 4px;
 
         @include tablet {
-            height: 85%;
+            height: 14rem;
+            width: 25rem;
+        }
+
+        @include desktop{
+            height: 10.5rem;
+            width: 20rem;
+            object-fit: fill;
         }
     }
 
@@ -59,7 +67,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        padding-top: 0.75rem;
+        padding-top: 0.5rem;
         width: 100%;
 
         @include tablet {
@@ -67,7 +75,19 @@
         }
 
         @include desktop {
-            width: 20.313rem;
+            width: 35%;
+        }
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: space-between;
+
+        @include desktop {
+            flex-direction: row;
+            align-items: center;
         }
     }
 
@@ -91,7 +111,7 @@
         gap: 0.5rem;
     }
 
-    &__label{
+    &__label {
         font-family: "AvenirDemi", sans-serif;
         color: #AFAFAF;
         font-size: 1rem;
@@ -105,7 +125,26 @@
         }
     }
 
-    textarea, input {
+    &__thumbnail {
+        color: $primary-brainFlix-blue;
+        font-family: "AvenirDemi", sans-serif;
+        background-color: $primary-brainFlix-white;
+        border-style: none;
+        float: right;
+        cursor: pointer;
+        font-size: 1rem;
+
+        @include tablet{
+            font-size: 1rem;
+        }
+
+        @include desktop{
+            font-size: 0.75rem;
+            width: 60%;
+        }
+    }
+
+    &__data {
         font-family: "AvenirRegular", sans-serif;
         font-size: 1rem;
         border: 0.063rem solid $secondary-brainFlix-mercury;
@@ -128,9 +167,10 @@
     }
 
     textarea {
-        height: 5.625rem; 
+        height: 5.625rem;
+
         @include tablet {
-            height: 4.375rem; 
+            height: 4.375rem;
         }
     }
 
@@ -138,12 +178,12 @@
         border: 0.063rem solid #D22D2D !important;
     }
 
-    &__publish{
+    &__publish {
         padding: 1.5rem 0rem;
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-        
+
         @include tablet {
             flex-direction: row-reverse;
         }
@@ -160,7 +200,7 @@
         padding-right: 1.563rem;
     }
 
-    &__cancel{
+    &__cancel {
         background-color: $primary-brainFlix-white;
         color: $primary-brainFlix-blue;
         font-family: "AvenirDemi", sans-serif;
