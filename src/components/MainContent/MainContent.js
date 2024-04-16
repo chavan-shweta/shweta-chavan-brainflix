@@ -48,6 +48,17 @@ const MainContent = ({ videoId }) => {
         }
     }
 
+    const handleVideoLikeClick = async() => {
+        try {
+            const response = await axios.put(`${API_URL}/videos/${videoId}/likes?api_key=${API_KEY}`);
+            if (response.status === 200) {
+                fetchVideoDetails();
+            }
+        } catch (error) {
+            console.log('Failed to like video', error);
+        }
+    }
+
     const postComment = async (comment) => {
         try {
             const response = await axios.post(`${API_URL}/videos/${videoId}/comments?api_key=${API_KEY}`, comment);
@@ -117,11 +128,11 @@ const MainContent = ({ videoId }) => {
                 </div>
                 <div className="main-content__social">
                     <span className="main-content__views">
-                        <img src={views} alt="View Count" ></img>
+                        <img src={views} alt="View Count"></img>
                         <label>{video.views}</label>
                     </span>
                     <span className="main-content__likes">
-                        <img src={likes} alt="Like Count"></img>
+                        <img src={likes} alt="Like Count" onClick={handleVideoLikeClick}></img>
                         <label>{video.likes}</label>
                     </span>
                 </div>
