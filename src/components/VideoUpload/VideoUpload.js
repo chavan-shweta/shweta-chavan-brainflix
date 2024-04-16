@@ -68,7 +68,6 @@ const VideoUpload = () => {
 
     const handleChange = (event) => {
         setImageFile(event.target.files[0]);
-        //upload = URL.createObjectURL(event.target.files[0]);
     }
 
     return (
